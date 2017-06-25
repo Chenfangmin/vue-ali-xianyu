@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="noresultwrap" v-else>
-				<p class="noresult">亲，你太潮了，闲鱼淘宝里暂时暂时还找到你要的东西呢，输入连衣裙试试~</p>
+			<p class="noresult">亲，你太潮了，闲鱼淘宝里暂时暂时还找到你要的东西呢，输入连衣裙试试~</p>
 		</div>
 	</div>
 </template>
@@ -53,17 +53,18 @@ export default {
 				console.log(result)
 				for( let i in result){
 					let item = i
+					console.log(item)
 					console.log(item.indexOf(this.keywords))
 					if(item.indexOf(this.keywords) !== -1){
 						this.items = result[item]
-						return
 					}
 				}
-				if(this.items.length){
+				if(this.items.length >0 ){
 					this.result = true
 				}else{
 					this.result = false
 				}
+				console.log(this.result)
 			}).catch((error) => {
 				console.log(error)
 			})

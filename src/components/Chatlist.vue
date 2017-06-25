@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="chatlist" :class="showBox>0?'popbox':'listbottom'">
-        <ul>
+    <ul>
         <div v-for="item in talks">
             <li class="user" v-if="item.type==1">
                 <div class="chat-user"><img :src="url"></div>
@@ -14,7 +14,7 @@
                 <div class="text" v-html="replaceEmoj(item.content)"></div>
             </li>
         </div>
-        </ul>
+    </ul>
 </div>
 <div class="block"></div>
 <div class="foot">
@@ -23,7 +23,7 @@
             <img src="../assets/images/录音.png" alt="">
         </span>
         <input id="msg" @keypress.enter="sendMsg" type="text"placeholder="想对Ta说点什么" class="input"  v-model="content"></input>
-        <span class="emoj" v-on:click=" showBox=showBox==1?0:1">
+        <span class="emoj" v-on:click="showBox=showBox==1?0:1">
             <img src="../assets/images/笑脸.png" alt="">
         </span>
         <!-- <span class="add" v-if="show" v-on:click="util.toast">
@@ -32,7 +32,7 @@
         <span  class="send" v-on:click="sendMsg">发送</span>
     </div>
     <div class="emojbox">
-        <div class="selbox" :class="showBox>0?'show':'hide'">
+        <div class="emoji" :class="showBox>0?'show':'hide'">
             <div v-show="showBox==1" class="emojs">
                 <mt-swipe :auto="0" :continuous="false">
                     <mt-swipe-item v-for="n in Math.ceil(EXPS.length/18)">
@@ -116,8 +116,7 @@ export default {
         this.name = username
         console.log(this.name)
         this.scrollToBottom();
-        this.inputFocus();
-        
+        this.inputFocus();    
     },
     methods: {
         getEXP (pageCurrent,pageSize) {
@@ -171,7 +170,6 @@ export default {
         },
         //替换表情代码
         replaceEmoj (content) {
-            var vm=this;
             var exps=this.EXPS;
             for(var i=0;i<exps.length;i++){
                 content = content.replace(exps[i].reg, '<img src="static/emotion/' + exps[i].file +'"  alt="" />');
@@ -202,26 +200,43 @@ export default {
     bottom: 4.8rem;
 }
 .popbox {
-    bottom: 19.8rem;
+    bottom: 19rem;
 }
 .chatlist ul {
     min-height: 30rem;
 }
 .chatlist ul li {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: .8rem;
     padding-left: 6rem;
     min-height: 6.8rem;
+    box-sizing: border-box;
 }
+
+/* 用户列表样式*/
 .chatlist ul .user {
     text-align: right;
     padding-left: 0;
     padding-right: 6rem;
+    box-sizing: border-box;
 }
 .user .chat-user {
     left: auto;
     right: .3rem;
 }
+.user .text {
+    margin-left: 0;
+    text-align: left;
+    background-color: #ffda44;
+    color: #fff;
+}
+.user .text:after {
+    left: auto;
+    right: -1rem;
+    border-top-color: #ffda44;
+}
+
+/*客服列表样式*/
 .chat-user {
     position: absolute;
     left: .3rem;
@@ -230,6 +245,7 @@ export default {
 .chat-user {
     display: inline-block;
     vertical-align: top;
+    font-size: 14px;
 }
 .chat-user img {
     width: 4rem;
@@ -256,18 +272,6 @@ export default {
     padding-right: .5rem;
     font-size: 1.2rem;
 }
-.user .text {
-    margin-left: 0;
-    text-align: left;
-    background-color: #ffda44;
-    color: #fff;
-}
-.text,
-.chat-user {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 14px;
-}
 .text {
     position: relative;
     line-height: 1rem;
@@ -278,10 +282,7 @@ export default {
     word-break: break-all;
     max-width: 46.2rem\9;
 }
-.chat-user {
-    position: absolute;
-    left: .3rem;
-}
+/*表情图片样式*/
 .text img {
     max-width: 100%;
     vertical-align: middle;
@@ -298,11 +299,7 @@ export default {
     border-color: #fff transparent transparent;
     overflow: hidden;  
 }
-.user .text:after {
-    left: auto;
-    right: -1rem;
-    border-top-color: #ffda44;
-}
+/* 底部输入框样式 */
 .foot {
     width: 100%;
     min-height: 4.8rem;
@@ -314,9 +311,14 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border-top: 1px solid #f6f6f6;
     padding: 0 1.2rem;
     box-sizing: border-box;
+}
+.foot .emoji {
+    width: 100%;
+    height: 14rem;
 }
 .block{
     min-height: 4.8rem;
@@ -346,10 +348,6 @@ export default {
 .add img{
     width: 3rem;
     height: 3rem;
-}
-.foot .selbox {
-    width: 100%;
-    height: 15rem;
 }
 .show {
     display: block;

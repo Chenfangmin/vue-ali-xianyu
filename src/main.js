@@ -26,7 +26,6 @@ Vue.prototype.api = APIJS
 import UtilJS from './assets/js/util.js'
 Vue.prototype.util = UtilJS
 /* eslint-disable no-new */
-let Hub = new Vue()
 let vm = new Vue({
   el: '#app',
   router,

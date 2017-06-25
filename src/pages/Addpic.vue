@@ -27,10 +27,10 @@
          <div class="list-link" >
           <img :src="url">
          </div>
-       <span class="cancleimg" @click='delImage(index)'></span>
+         <span class="cancleimg" @click='delImage(index)'></span>
        </li>
        <li class="list-li-add">
-       <span class="add-img" @click.stop="addPic"></span>
+        <span class="add-img" @click.stop="addPic"></span>
        </li>
      </ul>
     </div>
@@ -257,7 +257,7 @@ import util from '../assets/js/util.js'
         });
    },
    selectItem (e) {
-      let name = e.currentTarget.dataset.name;
+      let name = e.currentTarget.dataset.name
       this.kind = name
       this.hidden()
     },
@@ -269,28 +269,27 @@ import util from '../assets/js/util.js'
      let vm = this;
      let add = document.querySelector('input[type=file]')
      add.click()
-     return false;
+     return false
    },
    fileInput (e) {
-     var files = e.target.files || e.dataTransfer.files;
-     if(!files.length) return;
-     this.createImage(files, e);
+     var files = e.target.files || e.dataTransfer.files
+     if(!files.length) return
+     this.createImage(files, e)
    },
    createImage (file, e) {
-     let vm = this;
+     let vm = this
      // lrz图片先压缩在加载、
      this.lrz(file[0], { width: 480 }).then(function(rst) {
-      vm.imgUrls.push(rst.base64);
-      return rst;
+      vm.imgUrls.push(rst.base64)
+      return rst
      }).always(function() {
      // 清空文件上传控件的值
-     e.target.value = null;
-     });
+     e.target.value = null
+     })
    },
    delImage (index) {
-     let vm = this;
-     vm.imgUrls.splice(index, 1);
-
+     let vm = this
+     vm.imgUrls.splice(index, 1)
    },
     noprice () {
       Toast('贴子仅能在鱼塘发布，你附近没有鱼塘，去别的地方转转吧~')
@@ -350,8 +349,6 @@ import util from '../assets/js/util.js'
   width: 33.3333%;
   text-align: center;
   color: #000;
-  /*font-size: 1.4rem;*/
-  /*font-size: 14px;*/
 }
 .topname .item.selected{
   border-radius: 1.8rem;

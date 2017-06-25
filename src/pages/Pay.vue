@@ -143,13 +143,13 @@ export default {
 	height: 10rem;
 }
 .goodswrap .goodinfo {
-	padding: 1.2rem 1.2rem;
+	padding: 1rem 1.2rem;
 	box-sizing: border-box;
 }
 .detail {
 	font-size: 1.4rem;
 	color: #000;
-	margin-bottom: 1rem;
+	margin-bottom: .6rem;
 	line-height: 1.6;
 }
 .price {
