@@ -97,7 +97,8 @@ _____
  * **vue组件通信**<br>
   vue由许多的组件组成，那么各组件之间的通信就成了一个问题。vue中组件之间传值有这么几种方式。如果是页面较少，就可以考虑使用props传值，父传子，子传孙，一直传下去···但是，使用Props，会有些麻烦，状态的改变要往回传，页面一多就有些烦人。所以如果你的页面超过了10个以上，就要考虑vuex了，vuex就是专门为vue.js开发的状态管理模式，能够实现组件之间的组件共享。
  # 总结<br>
-   未来不会停止这个项目，会保持更新，逐步细化完善更多功能，如果有帮助可以fork和star,希望聆听你们的建议和更正
+   未来不会停止这个项目，会保持更新，逐步细化完善更多功能，如果有帮助可以fork和star,希望聆听你们的建议和更正~
+   ps: 我是一名大三的学生，求实习机会，请各位看官瞧一瞧望一望[我的简历](https://sukura7.github.io/resume/)
  
  # 使用手则
  ## Build Setup
@@ -114,6 +115,7 @@ _____
 
       # build for production and view the bundle analyzer report
       npm run build --report
+
     ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-     loader](http://vuejs.github.io/vue-loader).
