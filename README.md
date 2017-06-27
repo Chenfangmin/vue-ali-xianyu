@@ -20,7 +20,7 @@
 
 ### 在线预览
 _____
-**线上体验**： [demo](https://sukura7.github.io/vue-xianyu-demo/index.html#/) <br>
+**线上体验**： [demo](https://sukura7.github.io/vue-xianyu-demo/index.html#/) PC浏览器打开请切换成移动端模式效果更佳<br>
 **源码**： [源码](https://github.com/Sukura7/vue-ali-xianyu) <br>
 
 # 技术栈
